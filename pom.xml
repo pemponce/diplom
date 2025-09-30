@@ -1,0 +1,64 @@
+<!-- platform/pom.xml -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>platform</artifactId>
+    <version>0.1.0</version>
+    <packaging>pom</packaging>
+    <name>Predictive Autoscaling Platform (Maven Monorepo)</name>
+
+    <!-- версионирование централизовано -->
+    <properties>
+        <java.version>17</java.version>
+        <spring-boot.version>3.3.2</spring-boot.version>
+        <postgres.version>42.7.3</postgres.version>
+    </properties>
+
+    <!-- dependencyManagement: импортируем Spring Boot BOM -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- pluginManagement: единые плагины и их версии -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                    <configuration><release>${java.version}</release></configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- перечисляем все модули монорепо -->
+    <modules>
+        <module>libs/common</module>
+        <module>services/metrics-aggregator</module>
+<!--        <module>services/metrics-agent</module>-->
+<!--        <module>services/forecast-service</module>-->
+<!--        <module>services/scaling-controller</module>-->
+
+<!--        <module>services/demo/api-gateway</module>-->
+<!--        <module>services/demo/traffic-gen</module>-->
+    </modules>
+</project>
