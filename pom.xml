@@ -28,6 +28,10 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -54,7 +58,7 @@
     <modules>
         <module>libs/common</module>
         <module>services/metrics-aggregator</module>
-<!--        <module>services/metrics-agent</module>-->
+        <module>services/metrics-agent</module>
 <!--        <module>services/forecast-service</module>-->
 <!--        <module>services/scaling-controller</module>-->
 
