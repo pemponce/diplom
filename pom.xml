@@ -59,7 +59,7 @@
         <module>libs/common</module>
         <module>services/metrics-aggregator</module>
         <module>services/metrics-agent</module>
-<!--        <module>services/forecast-service</module>-->
+        <module>services/forecast-service</module>
 <!--        <module>services/scaling-controller</module>-->
 
 <!--        <module>services/demo/api-gateway</module>-->
